@@ -3,6 +3,15 @@
 {% block content %}
 
      <h2>Name: {{ object.title }}</h2>
-     <h4>Price: {{ object.price }} PLN</h4>
-
+     <h4>
+          Price: 
+          {% if object.discount_price %}
+               <del>{{ object.discount_price }} PLN</del>
+               {{ object.price }} PLN
+          {% else %}
+               {{ object.price }} PLN
+          {% endif %}
+     </h4>
+     <p>{{ object.description }}</p>
+     <a href="{{ object.get_add_to_cart_url }}">Add to cart</a>
 {% endblock content %}
