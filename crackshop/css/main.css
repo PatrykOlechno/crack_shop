@@ -1,0 +1,45 @@
+body{
+	background-color: #E0E0E0;
+}
+header{
+	background-color: #363636;
+	min-height: 60px;
+}
+/*header css*/
+.logo{
+	background-color: #565656;
+}
+.boxSearch{
+	width: 100%;
+	background-color: #565656;
+}
+.searchButton{
+	width: 9%;
+	box-sizing: border-box;
+	border: 0px;
+	background-color: transparent;
+	color: #363636;
+}
+input[name=search]{
+	width: 90%;
+	background-color: transparent;
+	border: 0px;
+}
+/*header css end*/
+/*main css*/
+.product{
+	background-color: #363636;
+}
+.imageProduct{
+	height: 150px;
+	width: 150px;
+}
+.productInfo>p{
+	background-color: #565656
+}
+.rate{
+	position: absolute;
+	right: 30px;
+	top: 10px;
+	background-color: #565656
+}
