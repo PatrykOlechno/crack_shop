@@ -14,7 +14,7 @@ header{
 	background-color: #565656;
 }
 .searchButton{
-	width: 9%;
+	width: 8%;
 	box-sizing: border-box;
 	border: 0px;
 	background-color: transparent;
@@ -42,4 +42,30 @@ input[name=search]{
 	right: 30px;
 	top: 10px;
 	background-color: #565656
+}
+/*second stage*/
+.secondStage{
+	position: absolute;
+	height: calc(100vh - 60px);
+	top: 60px;
+	left: 0px;
+	width: 100%;
+}
+.leftMain{
+	float: left;
+	background-color: #363636;
+	width: 30%;
+	height: 100%;
+	overflow-y: scroll;
+}
+.centerMain{
+	background-color: #E0E0E0;
+	width: 70%;
+	height: 100%;
+	float: left;
+	position: relative;
+	overflow-y: scroll;
+}
+.product-left{
+	background-color: #C4C4C4;
 }

@@ -1,3 +1,0 @@
-$('.product').on('click', function(){
-
-})
