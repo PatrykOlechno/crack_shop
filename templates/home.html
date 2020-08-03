@@ -2,35 +2,29 @@
 {% load static %}
 
 {% block content %}
-	<div class="secondStage invisible">
-		<div class="leftMain">
-			<h2> Products </h2>
-				{% for item in object_list %}
-					<div class="content container mb-5 mt-5 pt-4">
-						<div class="row mt-3">
-							<div class="col">
-								<div class="product-left rounded p-4 shadow d-flex align-items-center">
-									<img src="{% static 'img/img.png' %}" class="imageProduct img-thumbnail float-left">
-									<div class="productInfo d-inline-block text-white ml-3">
-										<p class="rounded d-inline-block text-justify p-2 name"><a href="{{ item.get_absolute_url }}">{{ item }}</a></p><br>
-										<p class="rounded d-inline-block text-justify p-2 price">
-										{% if item.discount_price %}
+	<main class="container mt-2">
+		<div class="row mt-5">
+{% for item in object_list %}
+
+			<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mt-5">
+				<div class="product rounded p-4 shadow d-flex align-items-center" about="">
+					<img src="{% static 'img/img.png' %}" class="imageProduct img-thumbnail float-left">
+					<div class="productInfo d-inline-block text-white ml-3">
+						<p class="rounded d-inline-block text-justify p-2 name"><a href="{{ item.get_absolute_url }}">{{ item }}</a></p><br>
+						<p class="rounded d-inline-block text-justify p-2 price">{% if item.discount_price %}
 											<del>{{ item.discount_price }} PLN</del>
 											{{ item.price }} PLN
 										{% else %}
 											{{ item.price }} PLN
 										{% endif %}</p><br>
-										<p class="rounded d-inline-block text-justify p-2 seller mb-0">Annon69</p>
-									</div>
-									<span class="text-justify rate text-right text-white p-2 rounded">40% <i class="far fa-thumbs-up"></i></span>
-								</div>
-							</div>
-						</div>
+						<p class="rounded d-inline-block text-justify p-2 seller mb-0">Annon69</p>
 					</div>
-					</div>
-		</div>
-	</div>
+					<span class="text-justify rate text-right text-white p-2 rounded">40% <i class="far fa-thumbs-up"></i></span>
+				</div>
+			</div>
+
     {% endfor %}
-       
+       		</div>
+	</main>
 
 {% endblock content %}
