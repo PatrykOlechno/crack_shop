@@ -6,46 +6,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% comment %} NAPRAW LINKI {% endcomment %}
+
     <link rel="stylesheet" type="text/css" href="{% static '/css/all.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
 	<title>CrackShop</title>
 </head>
-<body>
-    {% if messages %}
-    <ul class="messages mt-5 pt-4">
-        {% for message in messages %}
-        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    <header class="text-white d-flex align-items-center shadow-sm fixed-top">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="logo p-2 rounded-lg d-inline-block">
-					    <a href ="/">CrackShop</a>
-					</div>
-				</div>
-				<div class="col-6 d-flex align-items-center">
-					<div class="boxSearch p-1 rounded-pill">
-						<input type="text" name="search" placeholder="Czego szukasz?" class="text-center text-white">
-						<button type="submit" class="searchButton"><i class="fas fa-search"></i></button>
-					</div>
-				</div>
-				<div class="col">
-					<button type="submit" class="btn btn-light float-right">Zaloguj się</button>
-				</div>
-			</div>
-		</div>
-	</header>
-    {% block content%}
-    {% endblock %}
-	<script type="text/javascript" src="{% static '/js/jQuery.min.js' %}"></script>
-	<script type="text/javascript" src="{% static '/js/bootstrap.min.js' %}"></script>
-	<script type="text/javascript" src="{% static '/js/template.js' %}"></script>
-	<script type="text/javascript" src="{% static '/js/productInfo.js' %}"></script>
-</body>
+	<body>
+		{% if messages %}
+		<ul class="messages mt-5 pt-4">
+			{% for message in messages %}
+			<li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+
+		{% include 'header.html'%}
+
+		{% block content %}
+		{% endblock %}
+
+		{% include 'footer.html' %}
+		{% include 'scripts.html' %}
+
+	</body>
 </html>
