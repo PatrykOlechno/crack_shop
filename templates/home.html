@@ -11,9 +11,10 @@
 					<img src="{% static 'img/img.png' %}" class="imageProduct img-thumbnail float-left">
 					<div class="productInfo d-inline-block text-white ml-3">
 						<p class="rounded d-inline-block text-justify p-2 name"><a href="{{ item.get_absolute_url }}">{{ item }}</a></p><br>
-						<p class="rounded d-inline-block text-justify p-2 price">{% if item.discount_price %}
-											<del>{{ item.discount_price }} PLN</del>
-											{{ item.price }} PLN
+						<p class="rounded d-inline-block text-justify p-2 price">
+										{% if item.discount_price %}
+											<del>{{ item.price }} PLN</del>
+											{{ item.discount_price }} PLN
 										{% else %}
 											{{ item.price }} PLN
 										{% endif %}</p><br>
