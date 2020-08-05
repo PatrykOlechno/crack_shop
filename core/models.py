@@ -83,3 +83,9 @@ class Order(models.Model):
         for order_item in self.items.all():
             total += order_item.get_final_price()
         return total
+
+    def get_total_amount_saved(self):
+        saved = 0
+        for order_item in self.items.all():
+            saved += order_item.get_amount_saved()
+        return saved

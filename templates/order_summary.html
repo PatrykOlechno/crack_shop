@@ -48,7 +48,7 @@
         {% if object.get_total %}
            <tr>
             <td colspan="4"><b>Order Total</b></td>
-            <td>{{ object.get_total }}</td>
+            <td>{{ object.get_total }}<span class="badge badge-success ml-2">Saving: ${{ object.get_total_amount_saved }}</span></td>
           </tr>
           <tr>
             <td colspan="5">
