@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Item, OrderItem, Order
-from django.views.generic import ListView, DetailView
+from .models import Item, OrderItem, Order, BillingAddress
+from .forms import CheckoutForm
+from django.views.generic import ListView, DetailView, View
 from django.utils import timezone
 from django.contrib import messages
 
@@ -15,8 +16,42 @@ def products(request):
     return render(request, "products.html", context)
 
 
-def checkout(request):
-    return render(request, "checkout.html")
+class CheckoutView(View):
+    def get(self, *args, **kwargs):
+        form = CheckoutForm()
+        context = {
+            'form': form
+        }
+        return render(self.request, 'checkout.html', context)
+
+    def post(self, *args, **kwargs):
+        form = CheckoutForm(self.request.POST or None)
+        try:
+            order = Order.objects.get(user=self.request.user, ordered=False)
+
+            if form.is_valid():
+                street_address = form.cleaned_data.get('street_address')
+                apartment_adress = form.cleaned_data.get('apartment_adress')
+                country = form.cleaned_data.get('country')
+                zip = form.cleaned_data.get('zip')
+                payment_option = form.cleaned_data.get('payment_option')
+                billing_address = BillingAddress(
+                    user=self.requestuser,
+                    street_address=street_address,
+                    apartment_address=apartment_address,
+                    country=country,
+                    zip=zip
+                )
+                billing_address.save()
+                order.billing_address = billing_address
+                order.save()
+                return redirect('core:checkout')
+            messages.warning(self.request, "failed checkout")
+            return redirect('core:checkout')
+
+        except ObjectDoesNotExist:
+            messages.warning(self.request, "you dont have an active order")
+            return redirect("core:order-summary")
 
 
 class HomeView(ListView):
