@@ -1,18 +1,41 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
+     <link rel="stylesheet" type="text/css" href="{% static '/css/product.css' %}">
 
-     <h2 class="mt-5">Name: {{ object.title }}</h2>
-     <h4>
-          Price: 
-          {% if object.discount_price %}
-               <del>{{ object.discount_price }} PLN</del>
-               {{ object.price }} PLN
-          {% else %}
-               {{ object.price }} PLN
-          {% endif %}
-     </h4>
-     <p>{{ object.description }}</p>
-     <a href="{{ object.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">Add to cart</a>
-     <a href="{{ object.get_remove_from_cart_url }}" class="btn btn-danger btn-md my-0 p">Remove from cart</a>
+     <div class="container">
+          <div class="row product-con p-5 rounded">
+               <div class="col">
+                    <img src="{% static 'img/img.png' %}" class="img-thumbnail product-con-img">
+               </div>
+               <div class="col text-white text-center">
+                    <h2>{{ object.title }}</h2>
+                    <h4>Price: 
+                         {% if object.discount_price %}
+                              <del>{{ object.discount_price }} PLN</del>
+                              {{ object.price }} PLN
+                         {% else %}
+                              {{ object.price }} PLN
+                         {% endif %}
+                    </h4>
+
+                    <span class="text-justify text-right text-white p-2 rounded">40% <i class="far fa-thumbs-up"></i></span>
+
+                    <div class="mt-5">
+                         <a href="{{ object.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">Add to cart</a>
+                         <a href="{{ object.get_remove_from_cart_url }}" class="btn btn-danger btn-md my-0 p">Remove from cart</a>
+                    </div>
+               </div>  
+          </div>
+
+          <div class="row product-con p-5 rounded">
+               <div class="col text-white">
+                    <h4>{{ object.description }}</h4>
+               </div>
+          </div>
+     </div>
+
+     
+
 {% endblock content %}
