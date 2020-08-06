@@ -2,7 +2,7 @@
 <header class="text-white d-flex align-items-center shadow-sm fixed-top">
 	<div class="container">
 		<div class="row">
-			<div class="col">
+			<div class="col d-flex align-items-center">
 				<div class="logo p-2 rounded-lg d-inline-block">
 					<a href="/">CrackShop</a>
 				</div>
@@ -13,9 +13,9 @@
 					<button type="submit" class="searchButton"><i class="fas fa-search"></i></button>
 				</div>
 			</div>
-			<div class="col">
+			<div class="col d-flex align-items-center">
 				{% if request.user.is_authenticated %}
-					<a href="{% url 'core:order-summary' %}" class="nav-link waves-effect">
+					<a href="{% url 'core:order-summary' %}" class="nav-link waves-effect btn btn-light mr-2">
 					<span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span>
 					<i class="fas fa-shopping-cart"></i>
 					<span class="clearfix d-none d-sm-inline-block"> Cart </span>
@@ -27,7 +27,7 @@
 					<a href="{% url 'account_login' %}">
 						<button type="submit" class="btn btn-light float-right">Login</button>
 					</a>
-					<a href="{% url 'account_signup' %}">
+					<a href="{% url 'account_signup' %}" class="ml-2">
 						<button type="submit" class="btn btn-light float-right">Signup</button>
 					</a>
 				{% endif %}
