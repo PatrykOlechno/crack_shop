@@ -1,7 +1,7 @@
 body{
 	background-color: #E0E0E0;
 }
-header{
+header,footer{
 	background-color: #363636;
 	min-height: 60px;
 }
