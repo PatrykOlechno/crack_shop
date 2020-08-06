@@ -12,6 +12,9 @@
 	<link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
 	<title>CrackShop</title>
+	{% block extra_head %}
+	
+	{% endblock extra_head %}
 </head>
 	<body>
 		{% if messages %}
@@ -29,6 +32,8 @@
 
 		{% include 'footer.html' %}
 		{% include 'scripts.html' %}
-
+		{% block extra_scripts %}
+		
+		{% endblock extra_scripts %}
 	</body>
 </html>
