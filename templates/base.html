@@ -17,11 +17,11 @@
 </head>
 	<body>
 		{% if messages %}
-		<ul class="messages mt-5 pt-4">
-			{% for message in messages %}
-			<li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-			{% endfor %}
-		</ul>
+		{% for message in messages %}
+		<div {% if message.tags %} class="d-inline-block rounded alert alert-{{ message.tags }}" {% endif %} role="alert">
+			<span>{{ message }}</span>
+		</div>
+		{% endfor %}
 		{% endif %}
 
 		{% include 'header.html'%}
