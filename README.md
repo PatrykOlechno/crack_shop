@@ -1,3 +1,4 @@
 # Django Shop
-It's rewritten tutorial from freeCodecamp.org
-https://www.youtube.com/watch?v=YZvRrldjf1Y&t=1870s
+It's rewritten  uncompleted tutorial from freeCodecamp.org
+https://www.youtube.com/watch?v=YZvRrldjf1Y&t
+I haven't done payment method, but we've menaged to make an original style.
